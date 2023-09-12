@@ -45,6 +45,7 @@ let registrationController = async (req, res) => {
 
            const generator2 = aleaRNGFactory(Date.now());
            let randomNumber = generator2.uInt32().toString().substring(0,5)
+           
            let randomOtpStore = await User.findOneAndUpdate(
             {email}, 
             {$set: {randomOtp :randomNumber}},
